@@ -1,0 +1,390 @@
+/* ===== BASE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1a202c; /* sfondo scuro */
+  color: white;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Link */
+a {
+  color: #d97706; /* giallo scuro */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: #b45309;
+  outline: none;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #d97706;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  z-index: 1000;
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+}
+
+/* Desktop nav */
+nav.desktop-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+nav.desktop-menu a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+nav.desktop-menu a:hover,
+nav.desktop-menu a:focus-visible {
+  border-bottom-color: #fbbf24;
+  outline-offset: 2px;
+}
+
+/* Hamburger menu */
+button#btn-menu {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  display: none;
+}
+
+button#btn-menu svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ===== MOBILE NAV ===== */
+nav#navbar-mobile {
+  background-color: #d97706;
+  display: none;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+nav#navbar-mobile a {
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+nav#navbar-mobile a:last-child {
+  border-bottom: none;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+  height: 28rem;
+  background-image: url('https://source.unsplash.com/1600x900/?restaurant,food');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  text-align: center;
+  color: white;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.7) 100%);
+  z-index: 0;
+  border-radius: 0 0 30px 30px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-content h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Pulsante principale */
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+  padding: 0.85rem 2.2rem;
+  border-radius: 9999px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  box-shadow: 0 5px 15px rgba(213, 125, 18, 0.45);
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: linear-gradient(90deg, #b45309, #fbbf24);
+  outline: none;
+  box-shadow: 0 7px 20px rgba(251, 191, 36, 0.75);
+  cursor: pointer;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+section h3 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #92400e;
+  letter-spacing: 0.02em;
+}
+
+section p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #4b5563; /* gray-600 */
+}
+
+/* Ristorante - immagini griglia */
+#ristorante {
+  background-color: #1a202c;
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+}
+
+#ristorante .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+#ristorante img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+#ristorante img:hover,
+#ristorante img:focus-visible {
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* ===== FORM PRENOTAZIONI ===== */
+#prenotazioni form {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#prenotazioni input[type="text"],
+#prenotazioni input[type="email"],
+#prenotazioni input[type="tel"],
+#prenotazioni input[type="date"],
+#prenotazioni input[type="time"],
+#prenotazioni input[type="number"],
+#prenotazioni textarea {
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1.8px solid #ddd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+  resize: vertical;
+}
+
+#prenotazioni input[type="number"] {
+  -moz-appearance: textfield; /* rimuove le freccette Firefox */
+}
+
+#prenotazioni input[type="number"]::-webkit-inner-spin-button,
+#prenotazioni input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#prenotazioni input:focus,
+#prenotazioni textarea:focus {
+  border-color: #fbbf24;
+  outline: none;
+  box-shadow: 0 0 6px 3px rgba(251, 191, 36, 0.45);
+}
+
+/* Personalizzazione input numero persone */
+input[type="number"] {
+  width: 5.5rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Pulsante invio */
+#prenotazioni button[type="submit"] {
+  background: #d97706;
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.85rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#prenotazioni button[type="submit"]:hover,
+#prenotazioni button[type="submit"]:focus-visible {
+  background-color: #b45309;
+  outline: none;
+  box-shadow: 0 0 8px 3px rgba(180, 83, 9, 0.6);
+}
+
+/* ===== CONTATTI ===== */
+#contatti {
+  background-color: #fff4d1;
+  border-radius: 1rem;
+  padding: 3rem 1.5rem;
+  max-width: 700px;
+  margin: 4rem auto;
+  color: #92400e;
+}
+
+#contatti a {
+  font-weight: 600;
+  color: #b45309;
+}
+
+#contatti a:hover,
+#contatti a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* MAPPA */
+#contatti iframe {
+  width: 100%;
+  border-radius: 1rem;
+  border: none;
+  margin-top: 1.5rem;
+  height: 300px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #fde68a;
+  color: #92400e;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 1.25rem 1rem;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+footer .social-links {
+  margin-top: 0.5rem;
+}
+
+footer .social-links a {
+  color: #92400e;
+  margin: 0 0.7rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover,
+footer .social-links a:focus-visible {
+  color: #b45309;
+  outline: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  #ristorante .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  nav.desktop-menu {
+    display: none;
+  }
+
+  button#btn-menu {
+    display: inline-flex;
+  }
+
+  nav#navbar-mobile {
+    display: flex;
+  }
+
+  .hero-section {
+    height: 20rem;
+  }
+
+  .hero-content h2 {
+    font-size:2rem;
+}
+
+.hero-content p {
+font-size: 1rem;
+}
+}
